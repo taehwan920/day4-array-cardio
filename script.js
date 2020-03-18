@@ -37,6 +37,9 @@ console.table(fifteen);
 const inventorName = inventors.map(guy => `${guy.first}, ${guy.last}`)
 console.log(inventorName);
 
+const wesFullNames = inventors.map(inventor => `${inventor.first}  ${inventor.last}`);
+console.log(wesFullNames);
+
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 const oldToYoung = inventors.sort(function (a, b) {
