@@ -25,6 +25,13 @@ const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick
 const sixteenC = inventors.filter(guy => guy.year < 1600 && guy.year >= 1500);
 console.log(sixteenC)
 
+const wesfifteen = inventors.filter(function (inventor) {
+    if (inventor.year >= 1500 && inventor.year < 1600) {
+        return true;
+    };
+});
+console.table(fifteen);
+
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
 const inventorName = inventors.map(guy => `${guy.first}, ${guy.last}`)
@@ -40,7 +47,11 @@ console.log(oldToYoung);
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
 
+
 // 5. Sort the inventors by years lived
+const livedYears = inventors.reduce(() => {
+
+}, [])
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
