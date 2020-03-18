@@ -25,12 +25,12 @@ const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick
 const sixteenC = inventors.filter(guy => guy.year < 1600 && guy.year >= 1500);
 console.log(sixteenC)
 
-const wesfifteen = inventors.filter(function (inventor) {
+const wesFifteen = inventors.filter(function (inventor) {
     if (inventor.year >= 1500 && inventor.year < 1600) {
         return true;
     };
 });
-console.table(fifteen);
+console.table(wesFifteen);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
@@ -48,19 +48,39 @@ const oldToYoung = inventors.sort(function (a, b) {
 console.log(oldToYoung);
 
 const wesOrdered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
-console.table(ordered);
+console.table(wesOrdered);
 
 // Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
+// 4. How many years did all the inventors live?
 
+const wesTotalYears = inventors.reduce((total, inventor) => {
+    return total + (inventor.passed - inventor.year)
+}, 0)
+console.log(wesTotalYears);
 
 // 5. Sort the inventors by years lived
-const livedYears = inventors.reduce(() => {
-
-}, [])
+const oldest = inventors.sort((a, b) => {
+    return (b.passed - b.year) - (a.passed - a.year);
+});
+console.table(oldest);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+const category = document.querySelector('.mw-category');
+const links = Array.from(category.querySelectorAll('a'));
+
+const de = links.map(link => link.textContent);
+const findDe = de.filter(function (name) {
+    if (name.includes("de")) {
+        return true;
+    }
+})
+console.log(findDe);
+
+const wesDe = links
+    .map(link => link.textContent)
+    .filter(streetName => streetName.includes('de'));
 
 
 // 7. sort Exercise
